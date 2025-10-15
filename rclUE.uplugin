@@ -20,7 +20,7 @@
 			"Name": "rclUE",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
-			"WhitelistPlatforms": ["Linux"]
+			"WhitelistPlatforms": ["Linux", "Win64"]
 		}
 	]
 }

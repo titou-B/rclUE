@@ -6,6 +6,11 @@
 
 #pragma once
 
+#ifdef _MSC_VER
+// Désactive le warning C4668 : macros non définies remplacées par 0
+#pragma warning(disable : 4668)
+#endif
+
 #include <CoreMinimal.h>
 #include <Modules/ModuleManager.h>
 
