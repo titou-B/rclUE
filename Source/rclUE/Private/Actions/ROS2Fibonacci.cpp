@@ -58,6 +58,14 @@ void UROS2FibonacciAction::GetResultRequest(FROSFibonacciGRReq& Result) const
     Result.SetFromROS2(Fibonacci_result_request);
 }
 
+void UROS2FibonacciAction::SetGoalIdToResultRequest(FROSFibonacciGRReq& Result)
+{
+    for (int i = 0; i < 16; i++)
+    {
+        Result.GoalId[i] = Fibonacci_goal_request.goal_id.uuid[i];
+    }
+}
+
 void UROS2FibonacciAction::SetResultResponse(const FROSFibonacciGRRes& Result)
 {
     Result.SetROS2(Fibonacci_result_response);

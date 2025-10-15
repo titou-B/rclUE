@@ -7,9 +7,9 @@
 #include <CoreMinimal.h>
 
 // ROS
-#include "action_msgs/srv/cancel_goal.h"
-#include "example_interfaces/action/fibonacci.h"
 #include "unique_identifier_msgs/msg/uuid.h"
+#include "example_interfaces/action/fibonacci.h"
+#include "action_msgs/srv/cancel_goal.h"
 
 // rclUE
 #include "Actions/ROS2GenericAction.h"
@@ -174,8 +174,7 @@ public:
             GoalId[i] = in_ros_data.goal_id.uuid[i];
         }
 
-        UROS2Utils::SequenceROSToUEArray<int, int>(
-            in_ros_data.feedback.sequence.data, Sequence, in_ros_data.feedback.sequence.size);
+        UROS2Utils::SequenceROSToUEArray<int, int>(in_ros_data.feedback.sequence.data, Sequence, in_ros_data.feedback.sequence.size);
     }
 
     void SetROS2(example_interfaces__action__Fibonacci_FeedbackMessage& out_ros_data) const
@@ -226,6 +225,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
     void GetResultRequest(FROSFibonacciGRReq& Result) const;
+
+    UFUNCTION(BlueprintCallable)
+    void SetGoalIdToResultRequest(FROSFibonacciGRReq& Result);
 
     UFUNCTION(BlueprintCallable)
     void SetResultResponse(const FROSFibonacciGRRes& Result);
